@@ -11,6 +11,7 @@ def scrape_all():
     browser = Browser('chrome', **executable_path, headless=True)
 
     news_title, news_summary = mars_news(browser)
+    hemisphere_image_urls = hemispheres(browser)
 
     # run all scraping functions and store results in dictionary
     data = {
@@ -111,7 +112,6 @@ def hemispheres(browser):
         browser.visit(url)
     
     return hemisphere_image_urls
-
 
 if __name__ == "__main__":
     # if running as script, print scraped data
